@@ -1,6 +1,114 @@
 <template>
 <div class="container">
   <Header></Header>
+  <v-app id="inspire">
+    <v-form>
+      <v-container>
+        <v-row>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+            <v-text-field
+              label="Venue Name"
+              placeholder="Venue"
+              outlined
+              dense
+            ></v-text-field>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+            <v-text-field
+              label="Owner Name"
+              placeholder="Owner"
+              outlined
+              dense
+            ></v-text-field>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+            <v-text-field
+              label="Telephone Number"
+              placeholder="T No"
+              outlined
+              dense
+            ></v-text-field>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+            <v-text-field
+              label="Email"
+              placeholder="Email"
+              outlined
+              dense
+            ></v-text-field>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+            <v-text-field
+              label="Email Address - Billing"
+              placeholder="Email Address - Billing"
+              outlined
+              dense
+            ></v-text-field>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+            <v-text-field
+              label="Street Address"
+              placeholder="Street Address"
+              outlined
+              dense
+            ></v-text-field>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+            <v-text-field
+              label="Location"
+              placeholder="Location"
+              outlined
+              dense
+            ></v-text-field>
+          </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+          <v-combobox
+          v-model="select"
+          :items="items"
+          label="POS Provider"
+          multiple
+          outlined
+          dense
+        ></v-combobox>
+         
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
+
+  </v-app>
   <form>
     <div class="venue_details">
       <InputSpace name="Client Name" place="hesus" type="text" value="Kamande" lable="User Name"/>
@@ -9,19 +117,19 @@
       <InputSpace name="Email Address - Reports" place="Email Address - Reports" type="text" lable="Email Address - Reports"/>
       <InputSpace name="Email Address - Billing" place="Email Address - Billing" type="text" lable="Email Address - Billing"/>
       <InputSpace name="Street Address" place="Street Address" type="text" lable="Street Address"/>
-      <!-- <InputSpace name="POS Provider" place="POS Provider" type="text" lable="POS Provider"/> -->
-      <div class="input-box">
-        <label for="Pos Provider"></label>
-        <v-combobox
-          v-model="select"
-          :items="items"
-          label="POS Provider"
-          multiple
-          outlined
-          dense
-        ></v-combobox>
-      </div>
+      <InputSpace name="POS Provider" place="POS Provider" type="text" lable="POS Provider"/>
+   
     </div>
+       <!-- <v-app>
+        <v-combobox
+        v-model="select"
+        :items="items"
+        label="POS Provider"
+        multiple
+        outlined
+        dense
+      ></v-combobox>
+      </v-app> -->
   </form>
 </div>
 </template>
@@ -35,10 +143,11 @@ export default {
   components: {
     Header,
     InputSpace,
+    
   },
   data () {
       return {
-        select: ['Vuetify', 'Programming'],
+        select: ["Programming", "Design"],
         items: [
           'Programming',
           'Design',
@@ -100,6 +209,12 @@ Header{
 .input-box{
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
+}
+v-combobox{
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  padding-left: 15px;
 }
 
 </style>

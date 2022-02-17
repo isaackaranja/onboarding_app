@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1 class="header_temp">Fill In The Venu Form</h1>
+        <h1 class="header_temp">Fill In The Venue Form</h1>
     </header>
 </template>
 

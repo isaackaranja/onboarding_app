@@ -1,127 +1,135 @@
 <template>
-<div class="container">
-  <Header></Header>
-  <v-app id="inspire">
-    <v-form>
-      <v-container>
-        <v-row>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-          >
-            <v-text-field
-              label="Venue Name"
-              placeholder="Venue"
+  <div >
+    
+    <v-app id="inspire">
+      <Header></Header>
+      <v-form>
+        <v-container>
+          <v-row>
+            <v-col
+              cols="12"
+              sm="6"
+              md="6"
+            >
+              <v-text-field
+                label="Venue Name"
+                placeholder="Venue"
+                outlined
+                dense
+              ></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+              md="6"
+            >
+              <v-text-field
+                label="Owner Name"
+                placeholder="Owner"
+                outlined
+                dense
+              ></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+              md="6"
+            >
+              <v-text-field
+                label="Telephone Number"
+                placeholder="T No"
+                outlined
+                dense
+              ></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+              md="6"
+            >
+              <v-text-field
+                label="Email"
+                placeholder="Email"
+                outlined
+                dense
+              ></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+              md="6"
+            >
+              <v-text-field
+                label="Email Address - Billing"
+                placeholder="Email Address - Billing"
+                outlined
+                dense
+              ></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+              md="6"
+            >
+              <v-text-field
+                label="Street Address"
+                placeholder="Street Address"
+                outlined
+                dense
+              ></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+              md="6"
+            >
+              <v-text-field
+                label="Location"
+                placeholder="Location"
+                outlined
+                dense
+              ></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+              md="6"
+            >
+              <v-combobox
+              :items="items"
+              label="POS Provider"
+              multiple
               outlined
               dense
-            ></v-text-field>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-          >
-            <v-text-field
-              label="Owner Name"
-              placeholder="Owner"
-              outlined
-              dense
-            ></v-text-field>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-          >
-            <v-text-field
-              label="Telephone Number"
-              placeholder="T No"
-              outlined
-              dense
-            ></v-text-field>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-          >
-            <v-text-field
-              label="Email"
-              placeholder="Email"
-              outlined
-              dense
-            ></v-text-field>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-          >
-            <v-text-field
-              label="Email Address - Billing"
-              placeholder="Email Address - Billing"
-              outlined
-              dense
-            ></v-text-field>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-          >
-            <v-text-field
-              label="Street Address"
-              placeholder="Street Address"
-              outlined
-              dense
-            ></v-text-field>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-          >
-            <v-text-field
-              label="Location"
-              placeholder="Location"
-              outlined
-              dense
-            ></v-text-field>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-          >
-          <v-combobox
-          v-model="select"
-          :items="items"
-          label="POS Provider"
-          multiple
-          outlined
-          dense
-        ></v-combobox>
-         
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-form>
-
-  </v-app>
-</div>
+            ></v-combobox>
+            </v-col>
+          </v-row>
+           <Table></Table>
+           <!-- <DrinkSelection @add-card="addCard"></DrinkSelection> -->
+           <Drink></Drink>
+        </v-container>
+      </v-form>
+        <br/>
+        
+    </v-app>
+    
+  </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import InputSpace from './components/InputSpace.vue'
+import Table from './components/Table.vue'
+// import DrinkSelection from './components/DrinkSelection.vue'
+import Drink from './components/Drink.vue'
 // import createVuetify from './plugins/vuetify'
 export default {
   name: 'App',
   components: {
     Header,
     InputSpace,
-    
+    Table,
+    Drink,
   },
   data () {
       return {
@@ -133,7 +141,12 @@ export default {
           'Vuetify',
         ],
       }
-    },
+  },
+  methods: {
+    // addCard(j) {
+    //   console.log("this is j", j)
+    // }
+  }
 }
 </script>
 
@@ -149,10 +162,10 @@ export default {
 }
 body{
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   background: darkgoldenrod;
+
 }
 .container{
   max-width: 700px;
@@ -177,7 +190,7 @@ Header{
   left: 0;
   height: 3px;
   width: 50px;
-  background: orange;
+  background: blue;
 }
 .container form .venue_details{
   display: flex;
@@ -194,5 +207,7 @@ v-combobox{
   font-size: 16px;
   padding-left: 15px;
 }
-
+.add-but{
+  color: yellow;
+}
 </style>
